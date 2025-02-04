@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --primary: #d08a27;
+  --secondary: #df942b;
+  --title: #211000;
+  --content: #707070;
+  --fontTitle: "Libre Baskerville", serif;
+  --fontContent: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--fontTitle);
+}
+
+p, a, li {
+  font-family: var(--fontContent);
+}
+
+body {
+  margin: auto;
+  max-width: 1280px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contain-img {
+  z-index: -99;
+  margin-bottom: -50px;
+  margin-top: -40px;
+  object-fit: cover;
+  max-width: 250px;
+}
+
+.group-menus {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding-right: 20px;
+  justify-content: flex-end;
+}
+
+#toggle {
+  display: none;
+}
+
+/* Hamburger */
+.hamburger {
+  z-index: 99;
+  position: sticky;
+}
+
+.hamburger span {
+  position: relative;
+  width: 3em;
+  height: 5px;
+  display: block;
+  border-radius: 3px;
+  background-color: var(--primary);
+  margin-top: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 40%;
+  margin-right: -20px;
+  background-color: var(--title);
+  top: 0; bottom: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+}
+.nav-wrapper {
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+nav {
+  text-align: center;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+  display: inline-block;
+  margin-top: 1.25em;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px;
+}
+
+nav a:before {
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 0.25em;
+  background-color: white;
+  left: -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+nav a:hover {
+  color: var(--secondary);
+}
+nav a:hover:before {
+  height: 100%;
+}
+
+/* Animations */
+.hamburger .top-bun {
+  margin-top: 25px;
+}
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -5px;
+}
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(135deg);
+}
+
+#toggle:checked + .hamburger + .nav {
+  top: 0;
+  transform: scale(1);
+}
+#toggle:checked ~ .hamburger {
+  position: fixed;
+}
+
+
+/* Hero */
+.hero {
+  background: black;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+ font-weight: bold;
+ font-size: 26px;
+}
+
+.hero-content {
+  font-size: 14px;
+}
+
+.hero-link {
+  margin: 20px 0 20px 0;
+  padding: 15px;
+  background: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--title);
+}
+
+.container-action {
+  padding: 10px;
+  background: var(--primary);
+}
+
+.action-title {
+  margin: 15px 0 15px 0;
+  font-weight: lighter;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.action-content {
+  font-size: 14px;
+}
+
+.action-content:last-child {
+  margin-bottom: 20px;
+}
+
+/* News & Movies */
+.container {
+  padding: 10px;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 25px 0 25px 0;
+  width: 100%;
+  color: var(--title);
+}
+
+.film-title {
+  margin: 0px 0 25px 0 !important;
+}
+
+.card {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.card img {
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.card-content {
+  text-align: justify;
+  color: var(--content);
+}
+
+.card button { 
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Reservation */
+.container-input {
+  padding: 15px;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.1rem 1.5rem -0.3rem rgba(0, 0, 0, 0.07), 0 1rem 2rem -0.2rem rgba(0, 0, 0, 0.04);
+}
+
+.container-input h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0px 0 25px 0 !important;
+}
+
+.container-reservation {
+  display: flex;
+  justify-content: center;
+}
+
+.container-reservation img {
+ display: none;
+}
+
+.blockAllFields {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-input input[type="text"],
+.container-input input[type="email"],
+.container-input input[type="tel"],
+.container-input input[type="number"],
+.container-input select {
+  display: flex;
+  min-height: 2.5rem;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+  margin: 10px;
+  line-height: 1.6;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  width: 280px;
+  box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.03);
+}
+
+.container-input input[type="text"]::placeholder,
+.container-input input[type="email"]::placeholder,
+.container-input input[type="tel"]::placeholder,
+.container-input input[type="number"]::placeholder,
+.container-input select {
+  color: var(--content);
+}
+
+.container-input input[type="text"]:focus,
+.container-input input[type="email"]:focus,
+.container-input input[type="tel"]:focus,
+.container-input input[type="number"]:focus,
+.container-input select:focus {
+  color: var(--title);
+}
+
+.container-input button { 
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* Footer */
+footer h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 25px 0 25px 0;
+}
+
+.footer-container {
+  padding: 10px;
+  min-width: 300px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-container p, .footer-container a, .footer-container li {
+  color: var(--content);
+  text-align: justify;
+}
+
+.footer-container ul {
+  margin-left: -20px;
+}
+
+@media all and (min-width: 768px) {
+  .card {
+    width: 40%;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+  .nav {
+    all: unset;
+  }
+  .nav-wrapper {
+    all: unset;
+  }
+  nav {
+    all: unset;
+  }
+  nav a {
+    color: var(--title);
+    font-size: 20px;
+    padding-right: 10px;
+  }
+  .container-callToAction {
+    display: flex;
+  }
+  .container-callToAction .container-action {
+    width: 70%;
+  }
+  .container-callToAction .hero {
+    width: 30%;
+  }
+  .action-block {
+    display: flex;
+    justify-content: space-around;
+  }
+  .card {
+    width: 30%;
+  }
+  .container-reservation img {
+    display: block;
+    width: 270px;
+    object-fit: cover;
+   }
+
+   footer {
+    display: flex;
+    margin-top: 30px;
+   }
+}
